@@ -1,0 +1,42 @@
+---
+title: "Detecção de fraude em cartão de crédito"
+---
+
+Notebook em 5 etapas: **Explorar, Preparar, Treinar, Avaliar, Explicar**.
+
+Dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) (ULB/Kaggle), baixado automaticamente pelo notebook. Só ~0,17% das transações são fraude.
+
+## Estrutura
+
+```
+.
+├── deteccao_fraude.ipynb   # análise completa (única entrega de código)
+├── requirements.txt        # dependências
+├── README.qmd              # este arquivo
+└── .gitignore
+```
+
+## Como rodar
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate        # Windows
+pip install -r requirements.txt
+jupyter notebook deteccao_fraude.ipynb
+```
+
+Requer internet na primeira célula de dados (download do CSV).
+
+## Resultados (teste, limiar 0,983)
+
+| Métrica | Valor |
+|---|---|
+| Recall | 0,726 |
+| Precisão | 0,986 |
+| F1 | 0,836 |
+| PR-AUC | 0,825 |
+| ROC-AUC | 0,962 |
+
+Modelo final: XGBoost com `scale_pos_weight`. Divisão estratificada 60/20/20 (treino/validação/teste); scaler e reamostragem ajustados só no treino, limiar escolhido na validação, teste usado uma vez.
+
+Conclusões completas, limitações e próximos passos estão no fim do notebook.
