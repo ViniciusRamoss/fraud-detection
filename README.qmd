@@ -11,6 +11,7 @@ Dataset: [Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/c
 ```
 .
 ├── deteccao_fraude.ipynb   # análise completa (única entrega de código)
+├── dashboard/              # gráficos gerados pelo notebook (PNG)
 ├── requirements.txt        # dependências
 ├── README.qmd              # este arquivo
 └── .gitignore
